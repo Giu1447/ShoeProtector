@@ -1,4 +1,5 @@
 package com.example.userservice.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.userservice.model.User;
 import com.example.userservice.service.UserService;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
 @RequestMapping("/users")

@@ -1,8 +1,39 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
+
 
 export default function Home() {
-  const navItems = ["Home", "Shop", "About", "Kontakt"];
+  const navItems = ["Home", "Shop", "About", "Kontakt", "Account erstellen"];
+  const router = useRouter();
+
+  const handleAddToCart = async () => {
+    try {
+      const res = await fetch("http://localhost:8083/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: 1, // Später dynamisch machen
+          productId: 123,
+          productName: "ShoeUmbrella Pro 2025",
+          price: 39.99,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Fehler beim Hinzufügen");
+
+      // Optional: Erfolgsmeldung
+      // alert("Zum Warenkorb hinzugefügt!");
+
+      router.push("/cart");
+    } catch (error) {
+      console.error("Fehler beim Hinzufügen zum Warenkorb:", error);
+    }
+  };
+
 
   return (
       <div className="flex flex-col min-h-screen bg-gradient-to-br from-green-50 to-blue-100">
@@ -58,6 +89,7 @@ export default function Home() {
                 <div className="flex items-center gap-6">
                   <span className="text-2xl font-bold text-orange-600">CHF 39.99</span>
                   <button
+                      onClick={handleAddToCart}
                       className="bg-orange-500 text-white px-5 py-2 rounded-lg hover:bg-orange-600 hover:scale-105 shadow-lg transition duration-300"
                   >
                     In den Warenkorb

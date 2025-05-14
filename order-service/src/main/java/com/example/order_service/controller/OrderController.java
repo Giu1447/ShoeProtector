@@ -1,4 +1,5 @@
 package com.example.orderservice.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.orderservice.model.Order;
 import com.example.orderservice.repository.OrderRepository;
@@ -6,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+@CrossOrigin(origins = "http://localhost:3000")
 
 @RestController
 @RequestMapping("/orders")

@@ -1,4 +1,5 @@
 package com.example.cartservice.controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.cartservice.model.CartItem;
 import com.example.cartservice.repository.CartItemRepository;
@@ -6,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/cart")
 public class CartItemController {
