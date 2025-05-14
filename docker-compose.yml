@@ -58,6 +58,8 @@ services:
     container_name: postgres_db
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:

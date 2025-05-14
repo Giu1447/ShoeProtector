@@ -21,11 +21,15 @@ public class UserService {
         return userRepository.findById(id);
     }
 
-    public Optional<User> getUserByUsername(String username) {
-        return Optional.ofNullable(userRepository.findByUsername(username));
+    public Optional<User> getUserByEmail(String email) {
+        return Optional.ofNullable(userRepository.findByEmail(email));
     }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public Iterable<User> getAllUsers() {
+        return userRepository.findAll();
     }
 }
