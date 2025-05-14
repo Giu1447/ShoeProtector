@@ -64,7 +64,7 @@ Shoeprotector basiert auf einem modernen Tech-Stack:
    ```
 2. Ins Verzeichnis wechseln:
    ```sh
-   cd shoeprotector
+   cd frontend
    ```
 3. Abhängigkeiten installieren:
    ```sh
