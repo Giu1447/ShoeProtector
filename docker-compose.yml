@@ -1,4 +1,3 @@
-
 services:
   frontend:
     build: ./frontend
@@ -59,12 +58,24 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - POSTGRES_HOST_AUTH_METHOD=trust
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
     volumes:
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./product-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/1_product.sql
+      - ./user-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/2_user.sql
+      - ./cart-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/3_cart.sql
+      - ./order-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/4_order.sql
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD", "pg_isready", "-U", "postgres" ]
+      interval: 10s
+      retries: 5
     networks:
       - mynetwork
 
 networks:
   mynetwork:
     driver: bridge
+volumes:
+  postgres_data:
+    driver: local

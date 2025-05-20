@@ -1,17 +1,27 @@
 package com.example.orderservice.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
 
 @Entity
+@Table(name = "orders")
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+
+    @Column(name = "product_name")
     private String productName;
+
     private int quantity;
 
-    // Standard Constructor, Getter und Setter
     public Order() {}
 
     public Order(Long id, String productName, int quantity) {

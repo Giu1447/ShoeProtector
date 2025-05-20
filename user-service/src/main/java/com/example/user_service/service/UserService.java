@@ -32,4 +32,14 @@ public class UserService {
     public Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }
+
+    public Optional<User> authenticate(String email, String password) {
+        User user = userRepository.findByEmail(email);
+        if (user != null) {
+            if (user.getPassword().equals(password)) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
+    }
 }
