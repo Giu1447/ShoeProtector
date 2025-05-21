@@ -8,7 +8,6 @@ services:
       - product-service
       - user-service
       - cart-service
-      - order-service
     networks:
       - mynetwork
 
@@ -42,16 +41,6 @@ services:
     networks:
       - mynetwork
 
-  order-service:
-    build: ./order-service
-    ports:
-      - "8084:8080"
-    restart: unless-stopped
-    depends_on:
-      - db
-    networks:
-      - mynetwork
-
   db:
     image: postgres:13
     container_name: postgres_db
@@ -64,7 +53,6 @@ services:
       - ./product-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/1_product.sql
       - ./user-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/2_user.sql
       - ./cart-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/3_cart.sql
-      - ./order-service/src/main/resources/init.sql:/docker-entrypoint-initdb.d/4_order.sql
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
       test: [ "CMD", "pg_isready", "-U", "postgres" ]

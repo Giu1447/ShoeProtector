@@ -49,8 +49,7 @@ export default function Home() {
                             priority
                         />
                         <h2 className="text-2xl font-semibold mt-4 text-green-700">{product.name}</h2>
-                        <p className="text-gray-700 mt-2">{product.description}</p>
-                        <span className="text-xl font-bold text-orange-600 mt-4">CHF {product.price.toFixed(2)}</span>
+                        <span className="text-xl font-bold text-orange-600 mt-4">CHF {product.price}</span>
                     </Link>
                 ))}
             </div>
