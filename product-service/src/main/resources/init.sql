@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS product
     );
 
 INSERT INTO product (id, name, description, price, imageurl)
-VALUES (1, 'Shoe Cleaner', 'Reinigt deine Schuhe gründlich', 9.99, '/images/placeholder1.jpg'),
-       (2, 'Waterproof Spray', 'Schützt deine Schuhe vor Wasser', 14.49, '/images/placeholder2.jpg'),
-       (3, 'Shoe Polish', 'Verleiht Glanz und schützt', 7.99, '/images/placeholder3.jpg'),
-       (4, 'Shoe Laces', 'Langlebige Schnürsenkel', 3.49, '/images/placeholder4.jpg'),
-       (5, 'Shoe Insoles', 'Bequeme Einlegesohlen', 12.49, '/images/placeholder5.jpg');
+VALUES (1, 'Shoe Cleaner', 'Reinigt deine Schuhe gründlich', 15.50, '../../public/images/Shoe_Cleaner.png'),
+       (2, 'Waterproof Spray', 'Schützt deine Schuhe vor Wasser', 25.50, '../../public/images/splash-protectors.jpeg'),
+       (3, 'Shoe Polish', 'Verleiht Glanz und schützt', 8.95, '../../public/images/Shoe-polish.png'),
+       (4, 'Shoe Laces', 'Langlebige Schnürsenkel', 801.75, '../../public/images/shoelace.png'),
+       (5, 'Shoe Insoles', 'Bequeme Einlegesohlen', 4.95, '../../public/images/Shoe-sole.png');
