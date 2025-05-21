@@ -1,0 +1,25 @@
+# Status report 
+
+## Projektstatus
+DasProjekt wurde in 4 Komponenten aufgeteilt:  
+- `frontend`
+- `product-service`
+- `user-service`
+- `cart-service`
+
+Der usprünglich geplante `order-service` wurde nicht mehr benötigt und wurde gelöscht, da die Bestellogik direkt im Cart- bzw. im Frontend gelöst.
+
+Folgende Features wurden umgesetzt:
+- `homepage`
+- `produktübersicht`
+- `login und auth`
+- `warenkorb`
+
+## Technischer Teil
+Frontend wurde mit Nextjs gestaltet, ist gut aussehend, funktionsfähig und hält UI-Design Prinzipien ein.
+Das Backend wurde in Services aufgeteilt und sie laufen stabil.
+Alle services folgen klarer Aufgabenlogik, z.B. übernimmt `cart-service` ausschliesslich Warenkorblogik.
+
+# Reflexion
+
+Die Projektarbeit verlief insgesamt gut. Wir konnten die Aufgaben im Team klar aufteilen und effizient umsetzen. Besonders das Arbeiten mit Microservices, hat viel spass gemacht und war einmal was anderes. Es gab einige Probleme, vorallem bzgl. Fetching und Eureka Integration. Docker Compose war anfangs komplex, vor allem beim Netzwerk-Setup, konnte aber erfolgreich konfiguriert werden.
